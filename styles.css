@@ -31,6 +31,8 @@
   --glass-border-soft: color-mix(in srgb, var(--border) 78%, #ffffff22);
   --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.08);
   --glass-shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.16);
+  --glass-blur: 12px;
+  --glass-bg-strong: color-mix(in srgb, var(--card) 84%, transparent);
 }
 
 [data-theme="light"] {
@@ -38,6 +40,7 @@
   --glass-border-soft: color-mix(in srgb, var(--border) 82%, #ffffff);
   --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.65);
   --glass-shadow-soft: 0 10px 22px rgba(12, 18, 28, 0.08);
+  --glass-bg-strong: color-mix(in srgb, var(--card) 94%, #ffffff);
 }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -124,7 +127,10 @@ footer {
 }
 
 .surface-section {
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--glass-border-soft) 85%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--glass-border-soft) 85%, transparent);
+  backdrop-filter: blur(6px);
   max-width: 100%;
   padding: 5rem 0;
 }
@@ -142,8 +148,11 @@ footer {
 }
 
 .interests-panel {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--glass-soft);
+  border: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
   border-radius: 8px;
   padding: 2rem;
 }
@@ -163,9 +172,12 @@ footer {
   width: min(1200px, calc(100% - 2.5rem));
   margin: 1.2rem auto 0;
   padding: 0.9rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--card) 90%, transparent);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -310,8 +322,14 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .stat-item {
-    border-left: 2px solid var(--accent);
-    padding-left: 1rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--glass-border-soft));
+    background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    min-width: 150px;
   }
 
   .stat-value {
@@ -406,8 +424,14 @@ h1, h2, h3, h4, h5, h6,
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
+    padding: 2rem;
+    border: 1px solid var(--glass-border-soft);
+    background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
+    border-radius: 14px;
+    margin-bottom: 1rem;
     position: relative;
   }
 
@@ -1096,10 +1120,11 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  box-shadow: var(--glass-highlight);
+  border-bottom: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  background: color-mix(in srgb, var(--glass-bg-strong) 82%, transparent);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
 }
 
 .nav-logo {
@@ -1209,8 +1234,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .theme-toggle {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--glass-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   border-radius: 999px;
   padding: 0.55rem 1rem;
@@ -1235,8 +1262,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .nav-actions-toggle {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--glass-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   border-radius: 999px;
   padding: 0.55rem 1rem;
@@ -2143,11 +2172,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .tool-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 18px;
   padding: 1.4rem;
-  background: color-mix(in srgb, var(--card) 90%, transparent);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+  background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
 }
 
 .tool-title {
