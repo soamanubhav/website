@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anubhav Soam | Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-page="blog">
+  <header class="site-topbar">
+    <div class="site-title">Anubhav Soam · Blog</div>
+    <div class="site-topbar-links">
+      <a class="site-pill-link" href="../">Portfolio</a>
+      <a class="site-pill-link" href="../projects/">Projects</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">🌙 Dark</button>
+    </div>
+  </header>
+  <section id="blog-tab" class="tab-content active">
+    <div class="blog-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="blog-wrapper">
+      <nav class="blog-nav">
+        <div class="nav-brand">Anubhav's Blog</div>
+        <div class="nav-actions" style="display:flex;align-items:center;gap:.7rem;">
+          <span id="cloudStatus" class="cloud-status" title="Blog cloud sync status">Local only</span>
+          <button id="syncNowBtn" class="btn btn-blue" onclick="syncCloudNow()" type="button" title="Sync now">Sync</button>
+        </div>
+      </nav>
+
+      <div id="blogRoot"></div>
+    </div>
+
+    <button class="fab" id="fab" onclick="blogState.view==='topics'?openTopicModal():openPostModal()" title="New post">＋</button>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-box" id="modalBox"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </section>
+
+  <script>
+    window.BLOG_CLOUD_CONFIG = window.BLOG_CLOUD_CONFIG || {
+      url: '',
+      anonKey: '',
+      table: 'blog_state',
+      stateId: 'main'
+    };
+  </script>
+  <script src="../blog.config.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    initBlogApp();
+  </script>
+</body>
+</html>

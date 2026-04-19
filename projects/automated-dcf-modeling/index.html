@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automated DCF Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-topbar">
+      <div class="site-title">Anubhav Soam · Projects</div>
+      <nav class="site-topbar-links" aria-label="Project navigation">
+        <a class="site-pill-link" href="../../index.html">Home</a>
+        <a class="site-pill-link" href="../index.html">All Projects</a>
+      </nav>
+    </header>
+
+    <div class="page">
+      <div class="card">
+        <h1 class="title">Discounted Cash Flow Dashboard</h1>
+        <p class="subtitle">Revenue → EBIT → NOPAT → FCFF → EV → Equity Value → Fair Value per Share</p>
+
+        <section class="panel assumptions-panel">
+          <div class="controls two-col">
+            <label>Ticker <input id="ticker" placeholder="TCS.NS / SUZLON.NS" /></label>
+            <label>Revenue Growth Rate <input id="revenue_growth_rate" type="number" step="0.001" placeholder="0.08" /></label>
+            <label>EBIT Margin <input id="ebit_margin" type="number" step="0.001" placeholder="0.18" /></label>
+            <label>Depreciation Rate <input id="depreciation_rate" type="number" step="0.001" placeholder="0.04" /></label>
+            <label>Capex % Revenue <input id="capex_percent" type="number" step="0.001" placeholder="0.06" /></label>
+            <label>NWC % Revenue <input id="nwc_percent" type="number" step="0.001" placeholder="0.08" /></label>
+            <label>Manual Ordinary Shares Number (optional) <input id="manual_shares_outstanding" type="number" step="1" min="1" placeholder="e.g. 15400000000" /></label>
+            <label>WACC <input id="wacc" type="number" step="0.001" placeholder="0.10" /></label>
+            <label>Terminal Growth Rate <input id="terminal_growth_rate" type="number" step="0.001" placeholder="0.03" /></label>
+            <label>Tax Rate <input id="tax_rate" type="number" step="0.001" placeholder="0.23" /></label>
+          </div>
+          <div class="actions">
+            <button id="run-btn">Run DCF Model</button>
+          </div>
+        </section>
+
+        <div id="status" class="status">Enter ticker + optional assumptions, then run DCF.</div>
+        <div id="defaults-chip" class="defaults-chip hidden"></div>
+
+        <section id="summary" class="panel hidden"></section>
+        <section id="charts" class="panel hidden">
+          <h2>Revenue, EBIT & FCFF Projection</h2>
+          <div id="chart-insights" class="chart-insights"></div>
+          <div class="chart-shell">
+            <canvas id="forecast-chart" height="120"></canvas>
+          </div>
+        </section>
+        <section id="forecast" class="panel hidden"></section>
+        <section id="sensitivity" class="panel hidden"></section>
+        <section id="statements" class="panel hidden"></section>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

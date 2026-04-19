@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anubhav Soam | Finance & Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <nav class="main-nav">
+    <a class="nav-logo" href="#" aria-label="Home">AS</a>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-collapsible">☰</button>
+      <div class="nav-links">
+      <a href="#" class="active" onclick="showTab('portfolio'); return false;">My Portfolio</a>
+      <a href="Blog/">Blog</a>
+      <div class="nav-projects-dropdown" id="navProjectsDropdown">
+        <button id="projectsMenuBtn" class="nav-projects-btn" type="button" aria-expanded="false" aria-controls="projectsMenu">Projects ▾</button>
+        <div class="nav-projects-menu" id="projectsMenu">
+          <a href="projects/personal-finance-manager/">Personal Finance Manager</a>
+          <a href="projects/automated-dcf-modeling/">Automated DCF Modeling</a>
+        </div>
+      </div>
+      </div>
+      <div class="nav-actions-wrap nav-actions-inline">
+        <button id="nav-actions-toggle" class="nav-actions-toggle" aria-label="Toggle quick actions" aria-expanded="false" aria-controls="nav-actions-panel">Quick Actions</button>
+        <div id="nav-actions-panel" class="nav-actions-global">
+          <button class="theme-toggle nav-action-btn" id="adminBtn" onclick="toggleAdmin()" aria-label="Toggle admin mode">Admin</button>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark mode">🌙 Dark</button>
+        </div>
+      </div>
+      <a id="resumeBtn" class="theme-toggle nav-action-btn nav-resume-btn" href="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/Anubhav_soam_resume.pdf?raw=1" download="Anubhav_soam_resume.pdf" target="_blank" rel="noreferrer noopener" aria-label="Download resume">📄 Resume</a>
+    </div>
+  </nav>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="floating-blobs" aria-hidden="true">
+    <span class="floating-blob blob-a"></span>
+    <span class="floating-blob blob-b"></span>
+    <span class="floating-blob blob-c"></span>
+  </div>
+
+  <main id="portfolio" class="tab-content active">
+  <div id="home" style="min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 4rem;position:relative;overflow:hidden;">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <h1 class="fade-in delay-2">Anubhav<br><span class="hero-name-italic">Soam</span></h1>
+      <p class="hero-subtitle fade-in delay-3">Deputy Manager – Innovation | MBA Finance & Analytics | CFA Level 1 Candidate. Bridging data intelligence and financial strategy to drive measurable outcomes.</p>
+
+      <div class="hero-stats fade-in delay-3">
+        <div class="stat-item">
+          <div class="stat-value">1.7+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Alteryx</div>
+          <div class="stat-label">Certified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">8+</div>
+          <div class="stat-label">Value Propositions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">20+</div>
+          <div class="stat-label">Stocks Analyzed</div>
+        </div>
+      </div>
+
+      <div class="hero-cta fade-in delay-4">
+        <a href="mailto:soamanubhav@gmail.com" class="btn btn-primary">Get In Touch</a>
+        <a href="https://www.linkedin.com/in/anubhav-soam/" target="_blank" rel="noreferrer noopener" class="btn btn-outline">LinkedIn ↗</a>
+      </div>
+    </div>
+
+  </div>
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-date">04/2024 – 10/2025</div>
+        <div class="exp-company">Shriram Life Insurance</div>
+        <div class="exp-location">📍 Hyderabad</div>
+      </div>
+      <div class="exp-right">
+        <h3>Deputy Manager – Innovation</h3>
+        <ul class="exp-list">
+          <li>Automated 25+ resource planning workflows using Alteryx, streamlining internal operations and cutting manual effort significantly.</li>
+          <li>Prepared and presented financial reports to facilitate strategic collaboration with partner banks.</li>
+          <li>Spearheaded development of innovative insurance products using Empathy Maps, Market Research, and user CODEX, expanding market reach.</li>
+          <li>Conducted mortality analysis across 655+ districts with actuarial teams to identify high-growth geographies.</li>
+          <li>Led strategic blockchain integration project to automate claims settlement, boosting operational efficiency.</li>
+          <li>Created 8+ targeted value propositions aligned with diverse customer segments, strengthening product-market fit.</li>
+          <li>Designed population heatmaps leveraging district-level demographic data — enabling launch of 40+ new sales venues.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-date">12/2024 – 02/2025</div>
+        <div class="exp-company">Finlatics</div>
+        <div class="exp-location">📍 Remote</div>
+      </div>
+      <div class="exp-right">
+        <h3>Investment Banking – Live Project</h3>
+        <ul class="exp-list">
+          <li>Gained hands-on experience in equity research and investment banking, analyzing 20+ stocks across sectors.</li>
+          <li>Conducted risk assessment and portfolio management for a simulated portfolio worth ₹2L+, optimizing asset allocation.</li>
+          <li>Developed skills in fundamental & technical analysis, valuation techniques, and financial reporting.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-date">04/2023 – 05/2023</div>
+        <div class="exp-company">K-12 Techno Service</div>
+        <div class="exp-location">📍 Pune</div>
+      </div>
+      <div class="exp-right">
+        <h3>Operations Intern</h3>
+        <ul class="exp-list">
+          <li>Ensured high accuracy in financial data validation and streamlined data management.</li>
+          <li>Applied advanced Excel functions to streamline financial reconciliation and reporting.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="surface-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-title">Technical Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Alteryx</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R Programming</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">MS Excel</span>
+            <span class="skill-tag">Streamlit</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Finance Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Financial Modelling</span>
+            <span class="skill-tag">Valuation Analysis</span>
+            <span class="skill-tag">Equity Research</span>
+            <span class="skill-tag">Fixed Income</span>
+            <span class="skill-tag">Derivatives</span>
+            <span class="skill-tag">Ratio Analysis</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Python Libraries</div>
+          <div class="skill-tags">
+            <span class="skill-tag">pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Caret</span>
+            <span class="skill-tag">Forecast</span>
+            <span class="skill-tag">Yahoo Finance API</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Soft Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Analytical Problem-Solving</span>
+            <span class="skill-tag">Cross-functional Collaboration</span>
+            <span class="skill-tag">Presentation</span>
+            <span class="skill-tag">Market Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">📈</div>
+        <h3>Ratio Analysis Application</h3>
+        <p>Financial ratio dashboard automating extraction of income statements, balance sheets, and cash flows from public filings. Supports investment evaluation and peer comparison.</p>
+        <div>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Data Viz</span>
+          <span class="project-tag">Equity Research</span>
+        </div>
+        <div style="margin-top:1rem;">
+          <span style="font-size:0.75rem;color:var(--accent);">Profitability · Liquidity · Leverage · Efficiency · Market ratios</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🦠</div>
+        <h3>COVID-19 Trend Forecasting</h3>
+        <p>Published in Springer — developed a statistical model with 78% prediction accuracy for infection spread using time-series data analysis.</p>
+        <div>
+          <span class="project-tag">R</span>
+          <span class="project-tag">Time-Series</span>
+          <span class="project-tag">Springer</span>
+        </div>
+        <a href="https://link.springer.com/chapter/10.1007/978-981-16-5685-9_34" target="_blank" rel="noreferrer noopener" style="display:inline-block;margin-top:1rem;font-size:0.75rem;color:var(--accent2);text-decoration:none;">View Publication ↗</a>
+      </div>
+    </div>
+  </section>
+  <section id="projects-lab" class="surface-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Projects Lab</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-lab-grid">
+        <article class="tool-card" id="pfm-tool">
+          <h3 class="tool-title">Personal Finance Manager (Web)</h3>
+          <p class="tool-sub">Client profile, goals, planning and summary in one browser tool.</p>
+          <div class="pfm-tabs">
+            <button class="pfm-tab active" data-pfm-tab="profile" type="button">Client Profile</button>
+            <button class="pfm-tab" data-pfm-tab="goals" type="button">Personal Goals</button>
+            <button class="pfm-tab" data-pfm-tab="planning" type="button">Financial Planning</button>
+            <button class="pfm-tab" data-pfm-tab="summary" type="button">Summary</button>
+          </div>
+
+          <div class="pfm-pane active" id="pfm-profile">
+            <div class="pfm-inline-grid">
+              <input id="pfmFamilyName" placeholder="Family member name">
+              <select id="pfmFamilyRelation"><option>Head</option><option>Spouse</option><option>Son</option><option>Daughter</option></select>
+              <input id="pfmFamilyDob" type="date">
+              <select id="pfmFamilyGender"><option>Male</option><option>Female</option></select>
+              <button class="btn btn-blue" id="pfmAddFamily" type="button">Add Family</button>
+            </div>
+            <div id="pfmFamilyList" class="pfm-list"></div>
+
+            <div class="pfm-inline-grid">
+              <input id="pfmIncomeName" placeholder="Earning member name">
+              <input id="pfmIncomeAge" type="number" placeholder="Age">
+              <input id="pfmIncomeValue" type="number" placeholder="Annual Income">
+              <button class="btn btn-green" id="pfmAddIncome" type="button">Add Income</button>
+            </div>
+            <div id="pfmIncomeList" class="pfm-list"></div>
+
+            <div class="pfm-expenses" id="pfmExpenseInputs"></div>
+            <div class="pfm-loans" id="pfmLoanInputs"></div>
+            <div class="tool-kpis">
+              <div><span>Monthly Income</span><strong id="pfmMonthlyIncome">-</strong></div>
+              <div><span>Monthly Expenses</span><strong id="pfmMonthlyExpense">-</strong></div>
+              <div><span>Monthly EMI</span><strong id="pfmMonthlyEmi">-</strong></div>
+              <div><span>Net Monthly Savings</span><strong id="pfmMonthlyNet">-</strong></div>
+            </div>
+          </div>
+
+          <div class="pfm-pane" id="pfm-goals">
+            <div class="pfm-inline-grid">
+              <input id="pfmInflation" type="number" value="5" step="0.1" placeholder="Inflation %">
+              <input id="pfmCurrentAge" type="number" value="30" placeholder="Current Age">
+              <input id="pfmRetAge" type="number" value="60" placeholder="Retirement Age">
+            </div>
+            <div id="pfmGoalInputs" class="pfm-goal-grid"></div>
+            <div class="tool-kpis">
+              <div><span>Total Goal Corpus (Future)</span><strong id="pfmGoalFutureTotal">-</strong></div>
+              <div><span>Total Monthly SIP Required</span><strong id="pfmSipTotal">-</strong></div>
+            </div>
+          </div>
+
+          <div class="pfm-pane" id="pfm-planning">
+            <div class="pfm-inline-grid">
+              <input id="pfmStartCorpus" type="number" value="0" placeholder="Current Corpus">
+              <input id="pfmReturn" type="number" value="12" step="0.1" placeholder="Expected Return %">
+            </div>
+            <div class="tool-table-wrap"><table class="tool-table"><thead><tr><th>Year</th><th>Opening</th><th>SIP</th><th>Closing</th></tr></thead><tbody id="pfmProjectionBody"></tbody></table></div>
+          </div>
+
+          <div class="pfm-pane" id="pfm-summary">
+            <div class="tool-kpis">
+              <div><span>Goal Corpus Required</span><strong id="pfmSummaryGoal">-</strong></div>
+              <div><span>Projected Corpus</span><strong id="pfmSummaryProjected">-</strong></div>
+              <div><span>Gap / Surplus</span><strong id="pfmSummaryGap">-</strong></div>
+            </div>
+            <button class="btn btn-amber" id="pfmDownloadSummary" type="button">Download Summary (JSON)</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="education" class="surface-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="education-layout">
+        <div class="education-timeline">
+          <div class="edu-item">
+            <div class="edu-year">2025 – 2026</div>
+            <div class="edu-degree">Chartered Financial Analyst (CFA)</div>
+            <div class="edu-institution">Level 1 Candidate</div>
+            <span class="tag-cfa">In Progress</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">2022 – 2024</div>
+            <div class="edu-degree">MBA – Finance & Analytics</div>
+            <div class="edu-institution">NMIMS, Hyderabad</div>
+            <span class="edu-score">Score: 75.00%</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">2017 – 2021</div>
+            <div class="edu-degree">B.Tech – Computer Science Engineering</div>
+            <div class="edu-institution">SRM Institute, Chennai</div>
+            <span class="edu-score">Score: 81.94%</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">2016 – 2017</div>
+            <div class="edu-degree">XII – CBSE (PCM)</div>
+            <div class="edu-institution">The Shishukunj International School, Indore</div>
+            <span class="edu-score">Score: 82.20%</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1.5rem;color:var(--muted);">Certifications</h3>
+          <div class="cert-grid" id="certGrid">
+            <div class="cert-item" data-cert-key="alteryx-designer-core" data-cert-file="alteryx-designer-core" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/Alteryx_Designer_Core_Certification_Badge20241225-27-m3tjla.pdf">Alteryx Designer Core</div>
+            <div class="cert-item" data-cert-key="derivatives-options-futures" data-cert-file="derivatives-options-futures" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/derivatives.pdf">Derivatives – Options & Futures</div>
+            <div class="cert-item" data-cert-key="nptel-dbms" data-cert-file="nptel-dbms" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/NPTEL_DBMS_certificate.JPG">NPTEL – DBMS</div>
+            <div class="cert-item" data-cert-key="nptel-dsa-using-python" data-cert-file="nptel-dsa-using-python" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/NPTEL_Python_certificate%20.jpg">NPTEL – DSA using Python</div>
+            <div class="cert-item" data-cert-key="financial-modelling" data-cert-file="financial-modelling">Financial Modelling</div>
+            <div class="cert-item" data-cert-key="investment-banking-analysis" data-cert-file="investment-banking-analysis" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/Bank%20of%20America_completion_certificate.pdf">Investment Banking Analysis</div>
+            <div class="cert-item" data-cert-key="power-bi" data-cert-file="power-bi" data-cert-url="https://github.com/Anubhav-soam/Anubhavsoam/blob/main/certificate/Power%20BI.pdf">Power BI</div>
+            <div class="cert-item" data-cert-key="nism-sebi-investors-module" data-cert-file="nism-sebi-investors-module">NISM – SEBI Investors Module</div>
+          </div>
+
+
+          <div class="achievement-card" style="margin-top:2rem;">
+            <h3>🏆 Research Paper Publication</h3>
+            <p style="font-size:0.85rem;color:#b0b0c8;line-height:1.6;">Published research on COVID-19 trend forecasting in Springer. Developed a statistical model with <strong style="color:var(--accent);">78% prediction accuracy</strong> for infection spread using time-series data analysis.</p>
+            <a href="https://link.springer.com/chapter/10.1007/978-981-16-5685-9_34" target="_blank" rel="noreferrer noopener" style="display:inline-block;margin-top:1rem;font-size:0.78rem;color:var(--accent2);text-decoration:none;">springer.com ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:2rem;">Open to opportunities in financial analysis, investment banking, data analytics, and product innovation. Let's connect and explore what's possible.</p>
+        <div class="contact-info">
+          <a href="mailto:soamanubhav@gmail.com" class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">soamanubhav@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+919755433510" class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+91 97554 33510</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/anubhav-soam/" target="_blank" rel="noreferrer noopener" class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/anubhav-soam</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="interests-panel">
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;">Interests & Beyond</div>
+        <div class="interests-list">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span style="font-size:1.5rem;">🏊</span>
+            <div>
+              <div style="font-size:0.9rem;">Swimming</div>
+              <div style="font-size:0.75rem;color:var(--muted);">Discipline & endurance</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span style="font-size:1.5rem;">🎮</span>
+            <div>
+              <div style="font-size:0.9rem;">E-Sports</div>
+              <div style="font-size:0.75rem;color:var(--muted);">Strategic thinking & quick decisions</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span style="font-size:1.5rem;">📰</span>
+            <div>
+              <div style="font-size:0.9rem;">Current Affairs</div>
+              <div style="font-size:0.75rem;color:var(--muted);">Staying informed on markets & global events</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Anubhav Soam &nbsp;·&nbsp; Built with precision &nbsp;·&nbsp; Finance meets Technology</p>
+  </footer>
+
+  </main>
+
+  <section id="blog-tab" class="tab-content">
+    <div class="blog-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="blog-wrapper">
+      <nav class="blog-nav">
+        <div class="nav-brand">Anubhav's Blog</div>
+        <div class="nav-actions">
+          <span id="cloudStatus" class="cloud-status" title="Blog cloud sync status">Local only</span>
+          <button id="syncNowBtn" class="btn btn-blue" onclick="syncCloudNow()" type="button" title="Sync now">Sync</button>
+        </div>
+      </nav>
+
+      <div id="blogRoot"></div>
+    </div>
+
+    <button class="fab" id="fab" onclick="blogState.view==='topics'?openTopicModal():openPostModal()" title="New post">＋</button>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-box" id="modalBox"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </section>
+
+  <script>
+    window.BLOG_CLOUD_CONFIG = window.BLOG_CLOUD_CONFIG || {
+      url: '',
+      anonKey: '',
+      table: 'blog_state',
+      stateId: 'main'
+    };
+  </script>
+  <script src="blog.config.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

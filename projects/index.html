@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+  <header class="site-topbar">
+    <div class="site-title">Anubhav Soam · Projects</div>
+    <div class="site-topbar-links">
+      <a class="site-pill-link" href="../">Portfolio</a>
+      <a class="site-pill-link" href="../Blog/">Blog</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">🌙 Dark</button>
+    </div>
+  </header>
+  <section id="projects-lab" style="background:var(--surface);max-width:100%;padding:5rem 0;min-height:100vh;">
+    <div style="max-width:1000px;margin:0 auto;padding:0 2rem;">
+      <div class="section-header"><span class="section-num">P</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
+      <div class="projects-lab-grid">
+        <a class="tool-card" href="./personal-finance-manager/" style="text-decoration:none;color:inherit;">
+          <h3 class="tool-title">Personal Finance Manager</h3>
+          <p class="tool-sub">Client profile, goals, planning and summary web manager.</p>
+        </a>
+        <a class="tool-card" href="./automated-dcf-modeling/" style="text-decoration:none;color:inherit;">
+          <h3 class="tool-title">Automated DCF Modeling</h3>
+          <p class="tool-sub">Design placeholder page ready for manual model and file additions.</p>
+        </a>
+      </div>
+      <p style="margin-top:1rem;"><a class="btn btn-blue" href="../">← Back to Portfolio</a></p>
+    </div>
+  </section>
+  </div>
+  <script>
+    (function initTheme() {
+      const key = 'theme';
+      const saved = localStorage.getItem(key) || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      const btn = document.getElementById('theme-toggle');
+      const sync = () => { btn.textContent = savedTheme === 'light' ? '🌙 Dark' : '☀️ Light'; };
+      let savedTheme = saved;
+      sync();
+      btn.addEventListener('click', () => {
+        savedTheme = savedTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        localStorage.setItem(key, savedTheme);
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Personal Finance Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <header class="site-topbar">
+    <div class="site-title">Anubhav Soam · Personal Finance Manager</div>
+    <div class="site-topbar-links">
+      <a class="site-pill-link" href="../../">Portfolio</a>
+      <a class="site-pill-link" href="../../Blog/">Blog</a>
+      <a class="site-pill-link" href="../">All Projects</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">🌙 Dark</button>
+    </div>
+  </header>
+  <section id="projects-lab" style="background:var(--surface);max-width:100%;padding:5rem 0;min-height:100vh;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 3rem;">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Personal Finance Manager</h2>
+        <div class="section-line"></div>
+      </div>
+      <p style="margin-bottom:1rem;"><a class="btn btn-blue" href="../../">← Back to Portfolio</a></p>
+
+      <article class="tool-card" id="pfm-tool">
+        <h3 class="tool-title">Personal Finance Manager (Web)</h3>
+        <p class="tool-sub">Client profile, goals, planning and summary in one browser tool.</p>
+        <div class="pfm-tabs">
+          <button class="pfm-tab active" data-pfm-tab="profile" type="button">Client Profile</button>
+          <button class="pfm-tab" data-pfm-tab="goals" type="button">Personal Goals</button>
+          <button class="pfm-tab" data-pfm-tab="planning" type="button">Financial Planning</button>
+          <button class="pfm-tab" data-pfm-tab="summary" type="button">Summary</button>
+        </div>
+
+        <div class="pfm-pane active" id="pfm-profile">
+          <div class="pfm-inline-grid">
+            <input id="pfmFamilyName" placeholder="Family member name">
+            <select id="pfmFamilyRelation"><option>Head</option><option>Spouse</option><option>Son</option><option>Daughter</option></select>
+            <input id="pfmFamilyDob" type="date">
+            <select id="pfmFamilyGender"><option>Male</option><option>Female</option></select>
+            <button class="btn btn-blue" id="pfmAddFamily" type="button">Add Family</button>
+          </div>
+          <div id="pfmFamilyList" class="pfm-list"></div>
+
+          <div class="pfm-inline-grid">
+            <input id="pfmIncomeName" placeholder="Earning member name">
+            <input id="pfmIncomeAge" type="number" placeholder="Age">
+            <input id="pfmIncomeValue" type="number" placeholder="Annual Income">
+            <button class="btn btn-green" id="pfmAddIncome" type="button">Add Income</button>
+          </div>
+          <div id="pfmIncomeList" class="pfm-list"></div>
+
+          <div class="pfm-expenses" id="pfmExpenseInputs"></div>
+          <div class="pfm-loans" id="pfmLoanInputs"></div>
+          <div class="tool-kpis">
+            <div><span>Monthly Income</span><strong id="pfmMonthlyIncome">-</strong></div>
+            <div><span>Monthly Expenses</span><strong id="pfmMonthlyExpense">-</strong></div>
+            <div><span>Monthly EMI</span><strong id="pfmMonthlyEmi">-</strong></div>
+            <div><span>Net Monthly Savings</span><strong id="pfmMonthlyNet">-</strong></div>
+          </div>
+        </div>
+
+        <div class="pfm-pane" id="pfm-goals">
+          <div class="pfm-inline-grid">
+            <input id="pfmInflation" type="number" value="5" step="0.1" placeholder="Inflation %">
+            <input id="pfmCurrentAge" type="number" value="30" placeholder="Current Age">
+            <input id="pfmRetAge" type="number" value="60" placeholder="Retirement Age">
+          </div>
+          <div id="pfmGoalInputs" class="pfm-goal-grid"></div>
+          <div class="tool-kpis">
+            <div><span>Total Goal Corpus (Future)</span><strong id="pfmGoalFutureTotal">-</strong></div>
+            <div><span>Total Monthly SIP Required</span><strong id="pfmSipTotal">-</strong></div>
+          </div>
+        </div>
+
+        <div class="pfm-pane" id="pfm-planning">
+          <div class="pfm-inline-grid">
+            <input id="pfmStartCorpus" type="number" value="0" placeholder="Current Corpus">
+            <input id="pfmReturn" type="number" value="12" step="0.1" placeholder="Expected Return %">
+          </div>
+          <div class="tool-table-wrap"><table class="tool-table"><thead><tr><th>Year</th><th>Opening</th><th>SIP</th><th>Closing</th></tr></thead><tbody id="pfmProjectionBody"></tbody></table></div>
+        </div>
+
+        <div class="pfm-pane" id="pfm-summary">
+          <div class="tool-kpis">
+            <div><span>Goal Corpus Required</span><strong id="pfmSummaryGoal">-</strong></div>
+            <div><span>Projected Corpus</span><strong id="pfmSummaryProjected">-</strong></div>
+            <div><span>Gap / Surplus</span><strong id="pfmSummaryGap">-</strong></div>
+          </div>
+          <button class="btn btn-amber" id="pfmDownloadSummary" type="button">Download Summary (JSON)</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script src="../../script.js"></script>
+  <script>initPFMManager();</script>
+</body>
+</html>

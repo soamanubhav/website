@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Financial Profiling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="site-topbar">
+    <div class="site-title">Anubhav Soam · Personal Finance Manager</div>
+    <div class="site-topbar-links">
+      <a class="site-pill-link" href="../../">Portfolio</a>
+      <a class="site-pill-link" href="../../Blog/">Blog</a>
+      <a class="site-pill-link" href="../">All Projects</a>
+      <button id="theme-toggle" type="button">🌙 Dark</button>
+    </div>
+  </header>
+  <main class="app">
+    <header class="topbar card-shell">
+      <div class="topbar-copy">
+        <p class="eyebrow">Projects / Personal Finance Manager</p>
+        <h1>Client Financial Profiling Dashboard</h1>
+        <p class="topbar-text">Plan, simulate, and visualize your complete financial journey.</p>
+      </div>
+      <div class="actions">
+        <a class="action-link" href="../../">← Back to Portfolio</a>
+        <button id="export_state" type="button">Export Data</button>
+        <label class="import-btn">Import Data<input id="import_state" type="file" accept="application/json" hidden></label>
+        <button id="reset_state" type="button">Reset All</button>
+      </div>
+    </header>
+
+    <section id="auth-card" class="card auth-card">
+      <div>
+        <p class="eyebrow">Cloud Sync</p>
+        <h3>User Login</h3>
+        <p class="auth-copy">Sign in to keep Personal Finance Manager data separate for each user and sync it with Supabase.</p>
+      </div>
+      <div class="auth-actions-inline">
+        <button class="primary" id="open_auth_modal" type="button">Sign In / Sign Up</button>
+        <button id="sign_out_btn" type="button">Sign Out</button>
+        <button id="sync_now_btn" type="button">Sync Now</button>
+      </div>
+      <p id="auth_status" class="status-text muted-text">Configure Supabase to enable per-user login and cloud sync.</p>
+    </section>
+
+
+    <div id="auth_modal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="auth_modal_title">
+        <button id="close_auth_modal" class="modal-close" type="button" aria-label="Close sign in dialog">✕</button>
+        <p class="eyebrow">Cloud Sync</p>
+        <h3 id="auth_modal_title">Create Account / Sign In</h3>
+        <p class="auth-copy">First-time users should sign up with email and password. Returning users can sign in with the same credentials.</p>
+        <div class="grid g2 auth-grid">
+          <input id="auth_email" type="email" placeholder="Email address">
+          <input id="auth_password" type="password" placeholder="Password">
+        </div>
+        <div class="auth-actions-inline modal-actions">
+          <button class="primary" id="sign_in_btn" type="button">Sign In</button>
+          <button id="sign_up_btn" type="button">Sign Up</button>
+          <button id="magic_link_btn" type="button">Send Magic Link</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="profile">Client Profile</button>
+      <button class="tab" data-tab="goals">Personal Goals</button>
+      <button class="tab" data-tab="planning">Financial Planning</button>
+    </nav>
+
+    <section id="profile" class="panel active"></section>
+    <section id="goals" class="panel"></section>
+    <section id="planning" class="panel"></section>
+  </main>
+
+  <script>
+    window.PFM_CLOUD_CONFIG = window.PFM_CLOUD_CONFIG || {
+      url: '',
+      anonKey: '',
+      table: 'pfm_user_state'
+    };
+  </script>
+  <script src="pfm.config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
