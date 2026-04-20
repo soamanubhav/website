@@ -31,6 +31,8 @@
   --glass-border-soft: color-mix(in srgb, var(--border) 78%, #ffffff22);
   --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.08);
   --glass-shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.16);
+  --glass-blur: 12px;
+  --glass-bg-strong: color-mix(in srgb, var(--card) 84%, transparent);
 }
 
 [data-theme="light"] {
@@ -38,6 +40,7 @@
   --glass-border-soft: color-mix(in srgb, var(--border) 82%, #ffffff);
   --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.65);
   --glass-shadow-soft: 0 10px 22px rgba(12, 18, 28, 0.08);
+  --glass-bg-strong: color-mix(in srgb, var(--card) 94%, #ffffff);
 }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,7 +48,10 @@
   html { scroll-behavior: smooth; }
 
 body {
-    background: var(--bg);
+    background:
+      radial-gradient(120% 90% at 18% 22%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 55%),
+      radial-gradient(110% 95% at 82% 76%, color-mix(in srgb, var(--accent2) 24%, transparent) 0%, transparent 58%),
+      linear-gradient(130deg, color-mix(in srgb, var(--bg) 88%, #190a3b) 0%, color-mix(in srgb, var(--bg) 86%, #1f2f6f) 100%);
     color: var(--text);
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
@@ -124,7 +130,10 @@ footer {
 }
 
 .surface-section {
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--glass-border-soft) 85%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--glass-border-soft) 85%, transparent);
+  backdrop-filter: blur(6px);
   max-width: 100%;
   padding: 5rem 0;
 }
@@ -142,8 +151,11 @@ footer {
 }
 
 .interests-panel {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--glass-soft);
+  border: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
   border-radius: 8px;
   padding: 2rem;
 }
@@ -163,9 +175,12 @@ footer {
   width: min(1200px, calc(100% - 2.5rem));
   margin: 1.2rem auto 0;
   padding: 0.9rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--card) 90%, transparent);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -181,9 +196,12 @@ footer {
 
 .site-pill-link {
   text-decoration: none;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 999px;
   padding: 0.45rem 0.85rem;
+  background: color-mix(in srgb, var(--glass-soft) 84%, transparent);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   font-size: 0.76rem;
   letter-spacing: 0.08em;
@@ -191,8 +209,9 @@ footer {
 }
 
 .site-pill-link:hover {
-  border-color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 72%, var(--glass-border-soft));
   color: var(--accent);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
 }
 
 .site-title {
@@ -310,8 +329,14 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .stat-item {
-    border-left: 2px solid var(--accent);
-    padding-left: 1rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--glass-border-soft));
+    background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    min-width: 150px;
   }
 
   .stat-value {
@@ -406,8 +431,14 @@ h1, h2, h3, h4, h5, h6,
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--border);
+    padding: 2rem;
+    border: 1px solid var(--glass-border-soft);
+    background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
+    border-radius: 14px;
+    margin-bottom: 1rem;
     position: relative;
   }
 
@@ -831,8 +862,11 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .val-metric {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--glass-soft) 88%, transparent);
+    border: 1px solid var(--glass-border-soft);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
     border-radius: 6px;
     padding: 1rem;
     text-align: center;
@@ -914,7 +948,10 @@ h1, h2, h3, h4, h5, h6,
   .ff-bar-container {
     flex: 1;
     height: 28px;
-    background: var(--surface);
+    background: color-mix(in srgb, var(--glass-soft) 86%, transparent);
+    border: 1px solid var(--glass-border-soft);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -1017,8 +1054,11 @@ h1, h2, h3, h4, h5, h6,
   }
 
   .cert-item {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--glass-soft) 90%, transparent);
+    border: 1px solid var(--glass-border-soft);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
     border-radius: 6px;
     padding: 1rem 1.2rem;
     font-size: 0.82rem;
@@ -1036,7 +1076,9 @@ h1, h2, h3, h4, h5, h6,
     footer {
     text-align: center;
     padding: 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--glass-border-soft);
+    background: color-mix(in srgb, var(--glass-soft) 76%, transparent);
+    backdrop-filter: blur(8px);
     color: var(--muted);
     font-size: 0.78rem;
     font-family: 'DM Mono', monospace;
@@ -1096,10 +1138,11 @@ h1, h2, h3, h4, h5, h6,
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  box-shadow: var(--glass-highlight);
+  border-bottom: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  background: color-mix(in srgb, var(--glass-bg-strong) 82%, transparent);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
 }
 
 .nav-logo {
@@ -1129,8 +1172,10 @@ h1, h2, h3, h4, h5, h6,
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--glass-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   font-size: 1.2rem;
   cursor: pointer;
@@ -1193,9 +1238,11 @@ h1, h2, h3, h4, h5, h6,
   min-width: 230px;
   z-index: 1300;
   border-radius: 14px;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 92%, var(--card));
-  box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+  border: 1px solid var(--glass-border-soft);
+  background: color-mix(in srgb, var(--glass-bg-strong) 90%, transparent);
+  backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  box-shadow: var(--glass-highlight), 0 14px 34px rgba(0,0,0,0.28);
   padding: 0.45rem;
 }
 
@@ -1209,8 +1256,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .theme-toggle {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--glass-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   border-radius: 999px;
   padding: 0.55rem 1rem;
@@ -1235,8 +1284,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .nav-actions-toggle {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--glass-soft);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   color: var(--text);
   border-radius: 999px;
   padding: 0.55rem 1rem;
@@ -1262,9 +1313,11 @@ h1, h2, h3, h4, h5, h6,
   gap: 0.55rem;
   padding: 0.7rem;
   border-radius: 16px;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 92%, var(--card));
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--glass-border-soft);
+  background: color-mix(in srgb, var(--glass-bg-strong) 90%, transparent);
+  backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 2px));
+  box-shadow: var(--glass-highlight), 0 16px 35px rgba(0, 0, 0, 0.28);
   z-index: 1250;
 }
 
@@ -2143,11 +2196,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .tool-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 18px;
   padding: 1.4rem;
-  background: color-mix(in srgb, var(--card) 90%, transparent);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+  background: color-mix(in srgb, var(--glass-soft) 92%, transparent);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
 }
 
 .tool-title {
@@ -2183,9 +2238,11 @@ h1, h2, h3, h4, h5, h6,
 .pfm-expenses input,
 .pfm-loans input,
 .pfm-goal-item input {
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 10px;
-  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  background: color-mix(in srgb, var(--glass-soft) 82%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text);
   padding: 0.5rem 0.6rem;
 }
@@ -2198,10 +2255,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .tool-kpis div {
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 12px;
   padding: 0.75rem;
-  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  background: color-mix(in srgb, var(--glass-soft) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-soft);
 }
 
 .tool-kpis span {
@@ -2241,10 +2301,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .pfm-tab {
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
   border-radius: 999px;
   padding: 0.45rem 0.85rem;
-  background: transparent;
+  background: color-mix(in srgb, var(--glass-soft) 78%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--muted);
   cursor: pointer;
 }
@@ -2272,7 +2334,10 @@ h1, h2, h3, h4, h5, h6,
 .pfm-row {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border-soft);
+  background: color-mix(in srgb, var(--glass-soft) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   padding: 0.45rem 0.6rem;
   margin-bottom: 0.45rem;

@@ -10,6 +10,8 @@
   --muted: #7878a0;
   --danger: #ff6b6b;
   --header-gradient: linear-gradient(90deg, #b845ff 0%, #ff5a3d 100%);
+  --glass-blur: 12px;
+  --glass-shadow: 0 14px 34px rgba(0,0,0,.2);
 }
 [data-theme="light"] {
   --bg: #f7f7fb;
@@ -29,9 +31,12 @@ body { margin: 0; font-family: 'Outfit', sans-serif; color: var(--text); backgro
   width: min(1280px, calc(100% - 2.5rem));
   margin: 1.2rem auto 0;
   padding: 0.9rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border) 75%, #ffffff33);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--card) 92%, transparent);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), var(--glass-shadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,8 +64,12 @@ body { margin: 0; font-family: 'Outfit', sans-serif; color: var(--text); backgro
 }
 .app { max-width: 1280px; margin: 0 auto; padding: 32px 20px 56px; }
 .card-shell, .card, .chart {
-  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 78%, #ffffff22);
+  border-radius: 10px;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), var(--glass-shadow);
 }
 .topbar, .card { padding: 16px; margin-bottom: 14px; }
 .eyebrow { margin: 0 0 10px; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
@@ -92,6 +101,7 @@ button.primary{ background:var(--accent); color:#0a0a0f; border:none; cursor:poi
 .table th,.table td{ border-bottom:1px solid var(--border); padding:10px 8px; text-align:left; }
 .table th { font-family:'DM Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); }
 .metric { background: color-mix(in srgb, var(--surface) 80%, transparent); border:1px solid var(--border); border-radius:8px; padding:12px; }
+.metric { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
 .metric h4 { margin:0; font-size: .78rem; color:var(--muted); font-family:'DM Mono', monospace; letter-spacing:0.08em; text-transform:uppercase; }
 .metric p { margin:6px 0 0; font-weight:700; font-size:1.05rem; }
 .success { color:var(--accent3); font-weight:700; }
@@ -110,5 +120,6 @@ button.primary{ background:var(--accent); color:#0a0a0f; border:none; cursor:poi
 .modal-overlay { position: fixed; inset: 0; background: rgba(10, 10, 15, 0.6); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
 .modal-overlay.open { display: flex; }
 .modal-card { width: min(560px, 100%); position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
+.modal-card { background: color-mix(in srgb, var(--card) 84%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .modal-close { position: absolute; top: 12px; right: 12px; width: auto; padding: 8px 10px; }
 .modal-actions { margin-top: 14px; }
